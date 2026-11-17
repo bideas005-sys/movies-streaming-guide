@@ -3,198 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="pageTitle">Loading Streaming Guide...</title>
-  <meta id="pageDesc" name="description" content="Where to watch online legally, streaming platforms, and full editorial review." />
-  <meta name="robots" content="index, follow" />
+  <title>Movie Streaming Guide — StreamScope</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Dynamic JSON-LD Schema Container -->
-  <script id="dynamicSchema" type="application/ld+json">{}</script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
+  <!-- Header with Play Button + Website Name -->
   <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-bold text-amber-400">
-        StreamScope<span class="text-white">Guide</span>
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
+          <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Stream<span class="text-amber-400">Scope</span>
+        </span>
       </a>
-      <nav class="flex gap-6 text-sm text-slate-300">
-        <a href="index.html" class="hover:text-amber-400">Home</a>
-        <a href="about.html" class="hover:text-amber-400">About</a>
-        <a href="contact.html" class="hover:text-amber-400">Contact</a>
+
+      <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="hover:text-amber-400 transition">About</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <!-- SEO Breadcrumbs -->
-    <nav aria-label="Breadcrumb" class="text-xs text-slate-400 mb-6">
-      <a href="index.html" class="hover:text-amber-400">Home</a> &rsaquo;
-      <span id="crumbTitle" class="text-slate-200">Movie Guide</span>
-    </nav>
-
-    <article id="articleContainer">
-      <!-- Top Section: Poster + Where to Watch -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-        <div>
-          <img id="moviePoster" src="" alt="Movie Poster" class="w-full rounded-xl border border-slate-800 shadow-lg bg-slate-900" />
-        </div>
-        <div class="md:col-span-2 flex flex-col justify-between">
-          <div>
-            <h1 id="movieTitle" class="text-3xl font-extrabold text-white mb-2">Loading...</h1>
-            <p id="movieMeta" class="text-sm text-slate-400 mb-4"></p>
-            <div class="inline-block bg-amber-500/10 border border-amber-500/30 text-amber-300 px-3 py-1.5 rounded-lg text-sm font-semibold mb-6">
-              Editorial Rating: <span id="movieRating"></span>
-            </div>
-
-            <!-- Legal Streaming Platforms Box -->
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 mb-6">
-              <h2 class="text-base font-bold text-white mb-3">Where to Watch Legally</h2>
-              <div id="platformsList" class="space-y-2.5"></div>
-            </div>
-          </div>
-          <p id="movieVerdict" class="text-sm italic text-slate-300 border-l-4 border-amber-400 pl-3"></p>
-        </div>
-      </div>
-
-      <!-- AdSense In-Article Slot 1 (Well spaced from buttons/links per AdSense policy) -->
-      <div aria-label="Advertisement" class="my-8 min-h-[100px] bg-slate-900/50 border border-dashed border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-600">
-        <!-- Paste Google AdSense In-Article Ad Unit Here -->
-        Advertisement Space (In-Article Unit)
-      </div>
-
-      <!-- Unique Editorial Review Content -->
-      <section class="prose prose-invert max-w-none space-y-4 text-slate-300 leading-relaxed mb-10">
-        <h2 class="text-2xl font-bold text-white">Editorial Review & Streaming Analysis</h2>
-        <div id="reviewBody" class="space-y-4"></div>
-      </section>
-
-      <!-- Official YouTube Trailer from TMDB -->
-      <section id="trailerSection" class="mb-10 hidden">
-        <h2 class="text-2xl font-bold text-white mb-4">Official Trailer</h2>
-        <div class="aspect-video rounded-xl overflow-hidden border border-slate-800 bg-black">
-          <iframe id="trailerFrame" class="w-full h-full" src="" title="Official Trailer" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </section>
-
-      <!-- SEO FAQ Section -->
-      <section id="faqSection" class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-8">
-        <h2 class="text-xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-        <div id="faqList" class="space-y-4"></div>
-      </section>
-    </article>
+  <!-- Movie Details Container -->
+  <main id="movie-detail-container" class="max-w-5xl mx-auto px-4 py-12 flex-grow w-full">
+    <div class="text-center text-slate-400 py-20">Loading movie details...</div>
   </main>
 
-  <footer class="border-t border-slate-800 bg-slate-900 mt-16 py-8 text-sm text-slate-400">
-    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs">Data & posters provided by TMDB API. We do not host pirated streams.</p>
-      <div class="flex gap-4">
-        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
-        <a href="disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <p>&copy; 2026 StreamScope Guide. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="privacy.html" class="hover:text-amber-400 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-amber-400 transition">Terms of Service</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
-    const TMDB_IMG_BASE = "https://image.tmdb.org/t/p/w500";
+    const TMDB_API_KEY = "YOUR_TMDB_API_KEY_HERE";
 
-    async function initMoviePage() {
-      const params = new URLSearchParams(window.location.search);
-      const slug = params.get("slug");
-      if (!slug) return;
-
-      const res = await fetch("movies.json");
-      const movies = await res.json();
-      const movie = movies.find(m => m.slug === slug);
-
-      if (!movie) {
-        document.getElementById("movieTitle").textContent = "Movie guide not found.";
-        return;
+    const moviesData = [
+      {
+        slug: "oppenheimer",
+        title: "Oppenheimer",
+        tmdb_id: 872585,
+        release_year: 2023,
+        rating: "R",
+        runtime: "180 min",
+        genres: ["Drama", "History"],
+        synopsis: "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project. Oppenheimer and a team of scientists spend years developing and designing the atomic bomb.",
+        streaming_options: [
+          { platform: "Prime Video", type: "Rent / Buy", url: "https://www.amazon.com" },
+          { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+        ],
+        editorial_review: "Christopher Nolan's masterpiece is a tense, intellectually rigorous historical drama anchored by Cillian Murphy's powerhouse performance. It blends stunning cinematography with an uncompromising look at the dawn of the atomic age."
+      },
+      {
+        slug: "dune-part-two",
+        title: "Dune: Part Two",
+        tmdb_id: 693134,
+        release_year: 2024,
+        rating: "PG-13",
+        runtime: "166 min",
+        genres: ["Sci-Fi", "Adventure"],
+        synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he endeavors to prevent a terrible future.",
+        streaming_options: [
+          { platform: "Max", type: "Subscription", url: "https://www.max.com" },
+          { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+        ],
+        editorial_review: "Denis Villeneuve delivers a breathtaking sci-fi spectacle that surpasses the original in scale, emotion, and world-building. Timothée Chalamet and Zendaya lead a stellar cast through a visually striking epic."
+      },
+      {
+        slug: "inception",
+        title: "Inception",
+        tmdb_id: 27205,
+        release_year: 2010,
+        rating: "PG-13",
+        runtime: "148 min",
+        genres: ["Action", "Sci-Fi", "Thriller"],
+        synopsis: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+        streaming_options: [
+          { platform: "Netflix", type: "Subscription", url: "https://www.netflix.com" },
+          { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+        ],
+        editorial_review: "A mind-bending cinematic puzzle that rewards multiple viewings. Christopher Nolan's blending of high-concept philosophy with blockbuster action remains unmatched."
+      },
+      {
+        slug: "interstellar",
+        title: "Interstellar",
+        tmdb_id: 157336,
+        release_year: 2014,
+        rating: "PG-13",
+        runtime: "169 min",
+        genres: ["Adventure", "Drama", "Sci-Fi"],
+        synopsis: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+        streaming_options: [
+          { platform: "Paramount+", type: "Subscription", url: "https://www.paramountplus.com" },
+          { platform: "Prime Video", type: "Rent / Buy", url: "https://www.amazon.com" }
+        ],
+        editorial_review: "An emotionally resonant cosmic journey featuring Hans Zimmer's iconic organ score. It explores love, time dilation, and the survival instinct with stunning visual grandeur."
+      },
+      {
+        slug: "the-dark-knight",
+        title: "The Dark Knight",
+        tmdb_id: 155,
+        release_year: 2008,
+        rating: "PG-13",
+        runtime: "152 min",
+        genres: ["Action", "Crime", "Drama"],
+        synopsis: "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        streaming_options: [
+          { platform: "Max", type: "Subscription", url: "https://www.max.com" },
+          { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+        ],
+        editorial_review: "Widely regarded as one of the greatest superhero films ever made, driven by Heath Ledger’s legendary, chilling performance as the Joker."
+      },
+      {
+        slug: "gladiator-ii",
+        title: "Gladiator II",
+        tmdb_id: 558449,
+        release_year: 2024,
+        rating: "R",
+        runtime: "148 min",
+        genres: ["Action", "Adventure", "Drama"],
+        synopsis: "Years after witnessing the death of Maximus at the hands of his uncle, Lucius must enter the Colosseum after the powerful emperors of Rome conquer his home.",
+        streaming_options: [
+          { platform: "Paramount+", type: "Subscription", url: "https://www.paramountplus.com" }
+        ],
+        editorial_review: "Ridley Scott returns to the Colosseum with massive scale, intense arena battles, and a compelling narrative of vengeance and legacy."
+      },
+      {
+        slug: "deadpool-and-wolverine",
+        title: "Deadpool & Wolverine",
+        tmdb_id: 533535,
+        release_year: 2024,
+        rating: "R",
+        runtime: "128 min",
+        genres: ["Action", "Comedy", "Sci-Fi"],
+        synopsis: "Deadpool's peaceful existence comes crashing down when the Time Variance Authority recruits him for a mission. He teams up with a reluctant Wolverine to save his universe.",
+        streaming_options: [
+          { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+        ],
+        editorial_review: "A hilarious, action-packed meta-ride that delivers explosive chemistry between Ryan Reynolds and Hugh Jackman while satisfying comic book fans."
+      },
+      {
+        slug: "inside-out-2",
+        title: "Inside Out 2",
+        tmdb_id: 1022789,
+        release_year: 2024,
+        rating: "PG",
+        runtime: "96 min",
+        genres: ["Animation", "Family", "Comedy", "Adventure"],
+        synopsis: "Financial and emotional shifts hit teenager Riley's mind headquarters as new emotions like Anxiety, Envy, Embarrassment, and Ennui arrive to shake things up.",
+        streaming_options: [
+          { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+        ],
+        editorial_review: "A brilliant, deeply relatable animated sequel that expands on Pixar's emotional universe with wit, heart, and psychological insight."
+      },
+      {
+        slug: "john-wick-chapter-4",
+        title: "John Wick: Chapter 4",
+        tmdb_id: 603692,
+        release_year: 2023,
+        rating: "R",
+        runtime: "169 min",
+        genres: ["Action", "Crime", "Thriller"],
+        synopsis: "John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe.",
+        streaming_options: [
+          { platform: "Starz", type: "Subscription", url: "https://www.starz.com" },
+          { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+        ],
+        editorial_review: "A stunning visual spectacle featuring some of the best choreographed action sequences in modern cinematic history."
+      },
+      {
+        slug: "the-batman",
+        title: "The Batman",
+        tmdb_id: 414906,
+        release_year: 2022,
+        rating: "PG-13",
+        runtime: "176 min",
+        genres: ["Action", "Crime", "Drama"],
+        synopsis: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.",
+        streaming_options: [
+          { platform: "Max", type: "Subscription", url: "https://www.max.com" }
+        ],
+        editorial_review: "A gritty, noir-infused detective story that brings Gotham's dark underworld to life with phenomenal atmosphere and performances."
       }
+    ];
 
-      // 1. Update SEO Meta Tags
-      document.title = `Where to Watch ${movie.title} Online — Review & Streaming Guide`;
-      document.getElementById("pageDesc").setAttribute("content", movie.meta_description);
-      document.getElementById("crumbTitle").textContent = movie.title;
-
-      // 2. Populate Local JSON Content
-      document.getElementById("movieTitle").textContent = movie.title;
-      document.getElementById("movieMeta").textContent = `${movie.genre} • Directed by ${movie.director}`;
-      document.getElementById("movieRating").textContent = movie.our_rating;
-      document.getElementById("movieVerdict").textContent = `"${movie.verdict}"`;
-
-      const platformsList = document.getElementById("platformsList");
-      movie.platforms.forEach(p => {
-        platformsList.innerHTML += `
-          <div class="flex items-center justify-between bg-slate-950 px-4 py-3 rounded-lg border border-slate-800">
-            <div>
-              <span class="font-semibold text-white">${p.name}</span>
-              <span class="text-xs text-slate-400 ml-2">(${p.type})</span>
-            </div>
-            <a href="${p.url}" target="_blank" rel="nofollow noopener" class="text-xs font-bold bg-amber-500 text-slate-950 px-3 py-1.5 rounded hover:bg-amber-400">
-              Watch Official &rarr;
-            </a>
-          </div>
-        `;
-      });
-
-      const reviewBody = document.getElementById("reviewBody");
-      movie.review_paragraphs.forEach(text => {
-        const p = document.createElement("p");
-        p.textContent = text;
-        reviewBody.appendChild(p);
-      });
-
-      const faqList = document.getElementById("faqList");
-      movie.faqs.forEach(item => {
-        faqList.innerHTML += `
-          <div>
-            <h3 class="font-semibold text-amber-300 text-base">${item.q}</h3>
-            <p class="text-sm text-slate-300 mt-1">${item.a}</p>
-          </div>
-        `;
-      });
-
-      // 3. Inject Structured Data (Movie + Review Schema for Google Rich Snippets)
-      const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "Movie",
-        "name": movie.title,
-        "director": { "@type": "Person", "name": movie.director },
-        "genre": movie.genre,
-        "review": {
-          "@type": "Review",
-          "author": { "@type": "Organization", "name": "StreamScope Guide" },
-          "reviewBody": movie.review_paragraphs.join(" "),
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": movie.our_rating.split("/")[0],
-            "bestRating": "10"
-          }
-        }
-      };
-      document.getElementById("dynamicSchema").textContent = JSON.stringify(schemaData);
-
-      // 4. Fetch Poster & Trailer from TMDB API
-      if (TMDB_API_KEY && TMDB_API_KEY !== "YOUR_TMDB_API_KEY_HERE") {
-        const tmdbRes = await fetch(`https://api.themoviedb.org/3/movie/${movie.tmdb_id}?api_key=${TMDB_API_KEY}&append_to_response=videos`);
-        const tmdbData = await tmdbRes.json();
-
-        if (tmdbData.poster_path) {
-          document.getElementById("moviePoster").src = `${TMDB_IMG_BASE}${tmdbData.poster_path}`;
-          document.getElementById("moviePoster").alt = `${movie.title} Official Poster`;
-        }
-
-        const trailer = tmdbData.videos?.results?.find(v => v.site === "YouTube" && v.type === "Trailer");
-        if (trailer) {
-          document.getElementById("trailerSection").classList.remove("hidden");
-          document.getElementById("trailerFrame").src = `https://www.youtube.com/embed/${trailer.key}`;
-        }
+    async function fetchPoster(tmdbId) {
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+      }
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+        const data = await res.json();
+        return data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+      } catch (err) {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
       }
     }
 
-    initMoviePage();
+    async function loadMovieDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("slug");
+      const container = document.getElementById("movie-detail-container");
+
+      const movie = moviesData.find(m => m.slug === slug);
+
+      if (!movie) {
+        container.innerHTML = `
+          <div class="text-center py-20 bg-slate-900 border border-slate-800 rounded-2xl p-8">
+            <h1 class="text-2xl font-bold text-white mb-3">Movie Guide Not Found</h1>
+            <p class="text-slate-400 mb-6">Sorry, we couldn't find the streaming guide for this title.</p>
+            <a href="index.html" class="inline-block bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold px-6 py-3 rounded-xl transition">Back to All Movies</a>
+          </div>
+        `;
+        return;
+      }
+
+      document.title = `Where to Watch ${movie.title} (${movie.release_year}) — StreamScope`;
+      const posterUrl = await fetchPoster(movie.tmdb_id);
+
+      const streamingButtons = movie.streaming_options.map(opt => `
+        <a href="${opt.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-amber-500/50 p-4 rounded-xl transition group">
+          <div>
+            <div class="font-bold text-white group-hover:text-amber-400 transition">${opt.platform}</div>
+            <div class="text-xs text-slate-400">${opt.type}</div>
+          </div>
+          <span class="bg-amber-500 text-slate-950 text-xs font-bold px-3 py-1.5 rounded-lg">Watch Now &rarr;</span>
+        </a>
+      `).join("");
+
+      container.innerHTML = `
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-amber-400 mb-8 transition">
+          &larr; Back to Movies
+        </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <!-- Poster Column -->
+          <div class="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+            <img src="${posterUrl}" alt="${movie.title}" class="w-full h-auto object-cover" />
+          </div>
+
+          <!-- Info & Streaming Column -->
+          <div class="md:col-span-2 space-y-6">
+            <div>
+              <div class="flex flex-wrap items-center gap-3 text-xs font-semibold mb-3">
+                <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 px-2.5 py-1 rounded-md">${movie.rating}</span>
+                <span class="text-slate-400">${movie.release_year}</span>
+                <span class="text-slate-600">&bull;</span>
+                <span class="text-slate-400">${movie.runtime}</span>
+                <span class="text-slate-600">&bull;</span>
+                <span class="text-amber-400">${movie.genres.join(", ")}</span>
+              </div>
+              <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">${movie.title}</h1>
+            </div>
+
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg">${movie.synopsis}</p>
+
+            <!-- Where to Watch Section -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+              <h2 class="text-lg font-bold text-white mb-4">Where to Watch Legally</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                ${streamingButtons}
+              </div>
+            </div>
+
+            <!-- Editorial Review (Great for AdSense Content Value) -->
+            <div class="bg-slate-900/50 border border-slate-800/80 rounded-2xl p-6">
+              <h2 class="text-lg font-bold text-amber-400 mb-2">Editorial Review</h2>
+              <p class="text-slate-300 leading-relaxed">${movie.editorial_review}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    loadMovieDetail();
   </script>
 </body>
 </html>
