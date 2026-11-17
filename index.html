@@ -101,83 +101,125 @@
   </footer>
 
   <script>
-    // Apni free TMDB API Key yahan paste karein (developer.themoviedb.org se milti hai)
-    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
-    const TMDB_IMG_BASE = "https://image.tmdb.org/t/p/w500";
+  // 1. Apni TMDB API Key yahan likhein
+  const TMDB_API_KEY = "YAHAN_APNI_TMDB_API_KEY_PASTE_KAREIN";
 
-    let allMovies = [];
+  // 2. Saari 10 Movies ka Data Direct Code Mein
+  const moviesData = [
+    {
+      slug: "oppenheimer",
+      title: "Oppenheimer",
+      tmdb_id: 872585,
+      release_year: 2023,
+      synopsis: "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project."
+    },
+    {
+      slug: "dune-part-two",
+      title: "Dune: Part Two",
+      tmdb_id: 693134,
+      release_year: 2024,
+      synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family."
+    },
+    {
+      slug: "inception",
+      title: "Inception",
+      tmdb_id: 27205,
+      release_year: 2010,
+      synopsis: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea."
+    },
+    {
+      slug: "interstellar",
+      title: "Interstellar",
+      tmdb_id: 157336,
+      release_year: 2014,
+      synopsis: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft."
+    },
+    {
+      slug: "the-dark-knight",
+      title: "The Dark Knight",
+      tmdb_id: 155,
+      release_year: 2008,
+      synopsis: "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman faces a massive test."
+    },
+    {
+      slug: "gladiator-ii",
+      title: "Gladiator II",
+      tmdb_id: 558449,
+      release_year: 2024,
+      synopsis: "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home."
+    },
+    {
+      slug: "deadpool-and-wolverine",
+      title: "Deadpool & Wolverine",
+      tmdb_id: 533535,
+      release_year: 2024,
+      synopsis: "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside Wolverine."
+    },
+    {
+      slug: "inside-out-2",
+      title: "Inside Out 2",
+      tmdb_id: 1022789,
+      release_year: 2024,
+      synopsis: "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up."
+    },
+    {
+      slug: "john-wick-chapter-4",
+      title: "John Wick: Chapter 4",
+      tmdb_id: 603692,
+      release_year: 2023,
+      synopsis: "John Wick uncovers a path to defeating The High Table while facing off against global enemies."
+    },
+    {
+      slug: "the-batman",
+      title: "The Batman",
+      tmdb_id: 414906,
+      release_year: 2022,
+      synopsis: "When a sadistic serial killer targets political figures, Batman investigates Gotham's hidden corruption."
+    }
+  ];
 
-    async function loadMovies() {
-      try {
-        const res = await fetch("movies.json");
-        allMovies = await res.json();
-        renderMovies(allMovies);
-      } catch (err) {
-        console.error("Error loading movies.json:", err);
-      }
+  // 3. Poster Fetch Karne Ka Function
+  async function fetchPoster(tmdbId) {
+    try {
+      const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+      const data = await res.json();
+      return data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  // 4. Saari 10 Movies Screen Par Dikhane Ka Function
+  async function renderAllMovies() {
+    // Apne HTML mein movies wale box ki ID check kar lein (usually 'movies-grid' ya 'movies-container' hoti hai)
+    const container = document.getElementById("movies-grid") || document.getElementById("movies-container");
+    if (!container) {
+      console.error("Container ID nahi mili! Apne HTML mein movies div ki id check karein.");
+      return;
     }
 
-    async function fetchPoster(tmdbId) {
-      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
-        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
-      }
-      try {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
-        const data = await res.json();
-        return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
-      } catch {
-        return "";
-      }
+    container.innerHTML = "";
+
+    for (const movie of moviesData) {
+      const posterUrl = await fetchPoster(movie.tmdb_id);
+      
+      const card = document.createElement("div");
+      card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg flex flex-col";
+      
+      card.innerHTML = `
+        <img src="${posterUrl || 'https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster'}" alt="${movie.title}" class="w-full h-80 object-cover" />
+        <div class="p-4 flex flex-col flex-grow">
+          <h3 class="text-lg font-bold text-white mb-1">${movie.title} (${movie.release_year})</h3>
+          <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
+          <a href="movie.html?slug=${movie.slug}" class="mt-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-2 px-4 rounded-lg text-center transition">View Streaming Options</a>
+        </div>
+      `;
+      
+      container.appendChild(card);
     }
+  }
 
-    async function renderMovies(movies) {
-      const grid = document.getElementById("moviesGrid");
-      grid.innerHTML = "";
-
-      for (const movie of movies) {
-        const posterUrl = await fetchPoster(movie.tmdb_id);
-        const platformsHtml = movie.platforms
-          .map(p => `<span class="text-xs bg-slate-800 text-amber-300 px-2 py-1 rounded">${p.name}</span>`)
-          .join(" ");
-
-        const card = document.createElement("article");
-        card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col hover:border-slate-700 transition";
-        card.innerHTML = `
-          <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="block">
-            <img src="${posterUrl}" alt="${movie.title} Official Poster" loading="lazy" width="500" height="750" class="w-full h-80 object-cover bg-slate-800" />
-          </a>
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-                <span>${movie.genre}</span>
-                <span class="font-bold text-amber-400">★ ${movie.our_rating}</span>
-              </div>
-              <h3 class="text-lg font-bold text-white mb-2">
-                <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="hover:text-amber-400">${movie.title}</a>
-              </h3>
-              <p class="text-sm text-slate-400 line-clamp-3 mb-4">${movie.verdict}</p>
-            </div>
-            <div>
-              <div class="flex flex-wrap gap-1.5 mb-4">${platformsHtml}</div>
-              <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="block text-center w-full py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-sm transition">
-                Read Review & Streaming Guide
-              </a>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      }
-    }
-
-    document.getElementById("searchInput").addEventListener("input", (e) => {
-      const term = e.target.value.toLowerCase();
-      const filtered = allMovies.filter(m =>
-        m.title.toLowerCase().includes(term) || m.genre.toLowerCase().includes(term)
-      );
-      renderMovies(filtered);
-    });
-
-    loadMovies();
-  </script>
+  renderAllMovies();
+</script>
 </body>
 </html>
