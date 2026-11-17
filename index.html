@@ -84,107 +84,16 @@
   </footer>
 
   <!-- JavaScript Section -->
-  <script>
-    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
-
-    const moviesData = [
-      {
-        slug: "oppenheimer",
-        title: "Oppenheimer",
-        tmdb_id: 872585,
-        release_year: 2023,
-        rating: "R",
-        genres: ["Drama", "History"],
-        synopsis: "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project."
-      },
-      {
-        slug: "dune-part-two",
-        title: "Dune: Part Two",
-        tmdb_id: 693134,
-        release_year: 2024,
-        rating: "PG-13",
-        genres: ["Sci-Fi", "Adventure"],
-        synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family."
-      },
-      {
-        slug: "inception",
-        title: "Inception",
-        tmdb_id: 27205,
-        release_year: 2010,
-        rating: "PG-13",
-        genres: ["Action", "Sci-Fi", "Thriller"],
-        synopsis: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea."
-      },
-      {
-        slug: "interstellar",
-        title: "Interstellar",
-        tmdb_id: 157336,
-        release_year: 2014,
-        rating: "PG-13",
-        genres: ["Adventure", "Drama", "Sci-Fi"],
-        synopsis: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft to find a new planet."
-      },
-      {
-        slug: "the-dark-knight",
-        title: "The Dark Knight",
-        tmdb_id: 155,
-        release_year: 2008,
-        rating: "PG-13",
-        genres: ["Action", "Crime", "Drama"],
-        synopsis: "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman faces his greatest psychological and physical test."
-      },
-      {
-        slug: "gladiator-ii",
-        title: "Gladiator II",
-        tmdb_id: 558449,
-        release_year: 2024,
-        rating: "R",
-        genres: ["Action", "Adventure", "Drama"],
-        synopsis: "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home."
-      },
-      {
-        slug: "deadpool-and-wolverine",
-        title: "Deadpool & Wolverine",
-        tmdb_id: 533535,
-        release_year: 2024,
-        rating: "R",
-        genres: ["Action", "Comedy", "Sci-Fi"],
-        synopsis: "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside a reluctant Wolverine."
-      },
-      {
-        slug: "inside-out-2",
-        title: "Inside Out 2",
-        tmdb_id: 1022789,
-        release_year: 2024,
-        rating: "PG",
-        genres: ["Animation", "Family", "Comedy", "Adventure"],
-        synopsis: "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up."
-      },
-      {
-        slug: "john-wick-chapter-4",
-        title: "John Wick: Chapter 4",
-        tmdb_id: 603692,
-        release_year: 2023,
-        rating: "R",
-        genres: ["Action", "Crime", "Thriller"],
-        synopsis: "John Wick uncovers a path to defeating The High Table while facing off against powerful enemies across the globe."
-      },
-      {
-        slug: "the-batman",
-        title: "The Batman",
-        tmdb_id: 414906,
-        release_year: 2022,
-        rating: "PG-13",
-        genres: ["Action", "Crime", "Drama"],
-        synopsis: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman investigates the city's hidden corruption."
-      }
-    ];
-
+  <script src="movies.js"></script>
+<script>
+  const TMDB_API_KEY = "APNI_API_KEY";
+  // Baqi renderMovies wala code wahi rahega...
+</script>
     const posterCache = {};
 
     async function fetchPoster(tmdbId) {
       if (posterCache[tmdbId]) return posterCache[tmdbId];
-      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+      if (!TMDB_API_KEY || TMDB_API_KEY === "9c0f9a075f8e2a619ccbf639bb2ae895") {
         return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
       }
       try {
