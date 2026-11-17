@@ -108,14 +108,7 @@
     let allMovies = [];
 
     async function loadMovies() {
-      try {
-        const res = await fetch("movies.json");
-        allMovies = await res.json();
-        renderMovies(allMovies);
-      } catch (err) {
-        console.error("Error loading movies.json:", err);
-      }
-    }
+      fetch('movies.json')
 
     async function fetchPoster(tmdbId) {
       if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
