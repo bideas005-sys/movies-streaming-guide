@@ -1,66 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us — StreamScope Guide</title>
-  <meta name="description" content="Learn about StreamScope Guide, our editorial review process, and our mission to help viewers find legal streaming platforms." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Learn about StreamScope Guide, our mission to help movie fans find legal streaming platforms, rental options, and honest editorial reviews." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M8 5v14l11-7z'/></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
-<!-- Header with Play Button + Website Name -->
-<header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-    
-    <!-- Play Icon Logo + Brand Name -->
-    <a href="index.html" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
-        <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
+          <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Stream<span class="text-amber-400">Scope</span>
+        </span>
+      </a>
+
+      <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="text-amber-400 font-semibold transition">About</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-12 flex-grow w-full">
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 md:p-10 shadow-xl space-y-6">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white">About StreamScope Guide</h1>
+      
+      <p class="text-slate-300 leading-relaxed">
+        Welcome to <strong>StreamScope Guide</strong>, your trusted digital directory for discovering where to watch, rent, or purchase blockbuster movies legally across official streaming platforms. With dozens of subscription services available today—such as Netflix, Prime Video, Max, Disney+, Hulu, and Apple TV—finding where a specific movie is streaming can be frustrating. We simplify that process in one clean, fast, and easy-to-navigate place.
+      </p>
+
+      <h2 class="text-xl font-bold text-amber-400 pt-2">Our Mission</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Our goal is to promote safe, legal, and high-quality entertainment discovery. We do not host, upload, or distribute any pirated video files or unauthorized streams. Instead, we connect viewers directly with official streaming providers alongside concise synopses, runtime details, and original editorial insights to help you decide what to watch next.
+      </p>
+
+      <h2 class="text-xl font-bold text-amber-400 pt-2">Data & Attribution</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Movie posters and selected metadata displayed on StreamScope Guide are powered by The Movie Database (TMDB) API. This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability varies by region and subscription tier, and we regularly update our catalog with new releases and timeless classics.
+      </p>
+
+      <div class="pt-4 border-t border-slate-800">
+        <p class="text-sm text-slate-400">
+          Have a movie suggestion or feedback? Reach out to us anytime via our <a href="contact.html" class="text-amber-400 underline hover:text-amber-300">Contact Page</a>.
+        </p>
       </div>
-      <span class="text-xl font-extrabold tracking-tight text-white">
-        Stream<span class="text-amber-400">Scope</span>
-      </span>
-    </a>
-
-    <!-- Navigation Links -->
-    <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
-      <a href="index.html" class="hover:text-amber-400 transition">Home</a>
-      <a href="about.html" class="hover:text-amber-400 transition">About</a>
-      <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
-    </nav>
-  </div>
-</header>
-
-  <main class="max-w-3xl mx-auto px-4 py-12 space-y-6 text-slate-300 leading-relaxed">
-    <h1 class="text-3xl font-extrabold text-white">About StreamScope Guide</h1>
-    <p>
-      Welcome to <strong>StreamScope Guide</strong>, your trusted digital companion for discovering where to stream movies and television shows legally across major OTT platforms including Netflix, Amazon Prime Video, Max, Disney+, and Apple TV.
-    </p>
-    <h2 class="text-xl font-bold text-white pt-4">Our Mission</h2>
-    <p>
-      With dozens of streaming services available today, finding where a specific title is available to watch can be frustrating. Our goal is to simplify your viewing experience by combining verified platform availability with honest, spoiler-free editorial reviews and viewing recommendations.
-    </p>
-    <h2 class="text-xl font-bold text-white pt-4">100% Legal & Safe Streaming</h2>
-    <p>
-      StreamScope Guide strictly promotes legitimate entertainment channels. We do not host, upload, or distribute any pirated video files or unauthorized streams. All links on our platform direct users to official licensing providers and digital storefronts.
-    </p>
+    </div>
   </main>
 
-  <footer class="border-t border-slate-800 bg-slate-900 mt-16 py-8 text-sm text-slate-400">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
       <p>&copy; 2026 StreamScope Guide. All rights reserved.</p>
-      <div class="flex gap-5">
-        <a href="about.html" class="hover:text-white">About Us</a>
-        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
-        <a href="disclaimer.html" class="hover:text-white">Disclaimer</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+      <div class="flex gap-6">
+        <a href="privacy.html" class="hover:text-amber-400 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-amber-400 transition">Terms of Service</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
