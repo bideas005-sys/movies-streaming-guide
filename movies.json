@@ -66,5 +66,7 @@
       { "platform": "Prime Video", "type": "Rent / Buy", "url": "https://www.amazon.com/dp/B0CB9V2Y1C" },
       { "platform": "Apple TV", "type": "Rent / Buy", "url": "https://tv.apple.com/us/movie/oppenheimer/umc.cmc.4d375u54y966qjqx7b1r0y26j" }
     ],
+    {
     "editorial_review": "Christopher Nolan's masterpiece is a tense, intellectually rigorous historical drama anchored by Cillian Murphy's powerhouse performance. It blends stunning visual cinematography with an uncompromising look at the dawn of the atomic age."
+    }
   },
