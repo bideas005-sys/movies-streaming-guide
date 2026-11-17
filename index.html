@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StreamScope Guide — Find Where to Watch Movies Legally</title>
   <meta name="description" content="Discover where to legally stream, rent, or buy blockbuster movies across Netflix, Prime Video, Max, Disney+, and Apple TV." />
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f59e0b'><path d='M8 5v14l11-7z'/></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  <!-- Header with Play Button + Website Name -->
+  <!-- Header -->
   <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-      
-      <!-- Play Icon Logo + Brand Name -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
           <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
@@ -26,7 +24,6 @@
         </span>
       </a>
 
-      <!-- Navigation Links -->
       <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
         <a href="index.html" class="text-amber-400 font-semibold transition">Home</a>
         <a href="about.html" class="hover:text-amber-400 transition">About</a>
@@ -84,23 +81,25 @@
     </div>
   </footer>
 
-  <!-- JavaScript Section -->
+  <!-- External Movies Database -->
   <script src="movies.js"></script>
-<script>
-  const TMDB_API_KEY = "APNI_API_KEY";
-  // Baqi renderMovies wala code wahi rahega...
-</script>
+
+  <!-- Main Render Script -->
+  <script>
+    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
     const posterCache = {};
 
     async function fetchPoster(tmdbId) {
       if (posterCache[tmdbId]) return posterCache[tmdbId];
-      if (!TMDB_API_KEY || TMDB_API_KEY === "9c0f9a075f8e2a619ccbf639bb2ae895") {
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
         return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
       }
       try {
         const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
         const data = await res.json();
-        const url = data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+        const url = data.poster_path 
+          ? `https://image.tmdb.org/t/p/w500${data.poster_path}` 
+          : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
         posterCache[tmdbId] = url;
         return url;
       } catch (err) {
@@ -112,7 +111,7 @@
       const container = document.getElementById("movies-grid");
       container.innerHTML = "";
 
-      if (list.length === 0) {
+      if (!list || list.length === 0) {
         container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-12">No movies found matching your search.</p>`;
         return;
       }
@@ -120,7 +119,6 @@
       for (const movie of list) {
         const posterUrl = await fetchPoster(movie.tmdb_id);
         
-        // Poora card ab <a> tag hai taake kahin bhi click karne par detail page khule
         const card = document.createElement("a");
         card.href = `movie.html?slug=${movie.slug}`;
         card.className = "group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-amber-500/50 hover:-translate-y-1 transition-all duration-200 flex flex-col cursor-pointer";
@@ -129,11 +127,11 @@
           <div class="relative overflow-hidden">
             <img src="${posterUrl}" alt="${movie.title}" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
             <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md border border-slate-700">
-              ${movie.rating}
+              ${movie.rating || "PG-13"}
             </span>
           </div>
           <div class="p-4 flex flex-col flex-grow">
-            <div class="text-xs text-amber-400 font-medium mb-1">${movie.genres.join(" • ")}</div>
+            <div class="text-xs text-amber-400 font-medium mb-1">${(movie.genres || []).join(" • ")}</div>
             <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">${movie.title} (${movie.release_year})</h2>
             <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
             <div class="mt-auto bg-amber-500 group-hover:bg-amber-600 text-slate-950 font-semibold py-2.5 px-4 rounded-lg text-center text-sm transition">
@@ -152,7 +150,7 @@
 
       const filtered = moviesData.filter(movie => {
         const matchesSearch = movie.title.toLowerCase().includes(searchText);
-        const matchesGenre = selectedGenre === "All" || movie.genres.includes(selectedGenre);
+        const matchesGenre = selectedGenre === "All" || (movie.genres && movie.genres.includes(selectedGenre));
         return matchesSearch && matchesGenre;
       });
 
@@ -162,7 +160,11 @@
     document.getElementById("search-input").addEventListener("input", filterMovies);
     document.getElementById("genre-filter").addEventListener("change", filterMovies);
 
-    renderMovies(moviesData);
+    if (typeof moviesData !== "undefined") {
+      renderMovies(moviesData);
+    } else {
+      console.error("movies.js load nahi hui!");
+    }
   </script>
 </body>
 </html>
