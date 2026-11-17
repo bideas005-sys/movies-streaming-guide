@@ -9,17 +9,20 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  <!-- Header with Custom Play Button Logo -->
+  <!-- Header with Play Button + Website Name -->
   <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
       
-      <!-- Play Icon Logo -->
-      <a href="index.html" aria-label="Home" class="flex items-center group">
+      <!-- Play Icon Logo + Brand Name -->
+      <a href="index.html" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
           <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
             <path d="M8 5v14l11-7z"/>
           </svg>
         </div>
+        <span class="text-xl font-extrabold tracking-tight text-white">
+          Stream<span class="text-amber-400">Scope</span>
+        </span>
       </a>
 
       <!-- Navigation Links -->
@@ -65,9 +68,7 @@
 
   <!-- Movies Grid Container -->
   <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
-    <div id="movies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <!-- Movies will load here automatically -->
-    </div>
+    <div id="movies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </main>
 
   <!-- Footer -->
@@ -84,12 +85,8 @@
 
   <!-- JavaScript Section -->
   <script>
-    // ==========================================
-    // APNI TMDB API KEY YAHAN PASTE KAREIN
-    // ==========================================
-    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
+    const TMDB_API_KEY = "Y9c0f9a075f8e2a619ccbf639bb2ae895";
 
-    // Mukammal 10 Blockbuster Movies ka Data
     const moviesData = [
       {
         slug: "oppenheimer",
@@ -183,7 +180,6 @@
       }
     ];
 
-    // Poster cache taake filter karte waqt bar bar API call na ho
     const posterCache = {};
 
     async function fetchPoster(tmdbId) {
@@ -214,23 +210,25 @@
       for (const movie of list) {
         const posterUrl = await fetchPoster(movie.tmdb_id);
         
-        const card = document.createElement("div");
-        card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-slate-700 transition flex flex-col";
+        // Poora card ab <a> tag hai taake kahin bhi click karne par detail page khule
+        const card = document.createElement("a");
+        card.href = `movie.html?slug=${movie.slug}`;
+        card.className = "group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-amber-500/50 hover:-translate-y-1 transition-all duration-200 flex flex-col cursor-pointer";
         
         card.innerHTML = `
-          <div class="relative">
-            <img src="${posterUrl}" alt="${movie.title}" class="w-full h-80 object-cover" loading="lazy" />
+          <div class="relative overflow-hidden">
+            <img src="${posterUrl}" alt="${movie.title}" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
             <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md border border-slate-700">
               ${movie.rating}
             </span>
           </div>
           <div class="p-4 flex flex-col flex-grow">
             <div class="text-xs text-amber-400 font-medium mb-1">${movie.genres.join(" • ")}</div>
-            <h2 class="text-lg font-bold text-white mb-2">${movie.title} (${movie.release_year})</h2>
+            <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">${movie.title} (${movie.release_year})</h2>
             <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
-            <a href="movie.html?slug=${movie.slug}" class="mt-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-2.5 px-4 rounded-lg text-center text-sm transition">
+            <div class="mt-auto bg-amber-500 group-hover:bg-amber-600 text-slate-950 font-semibold py-2.5 px-4 rounded-lg text-center text-sm transition">
               Where to Watch
-            </a>
+            </div>
           </div>
         `;
         
@@ -238,7 +236,6 @@
       }
     }
 
-    // Search aur Genre Filter ka logic
     function filterMovies() {
       const searchText = document.getElementById("search-input").value.toLowerCase();
       const selectedGenre = document.getElementById("genre-filter").value;
@@ -255,7 +252,6 @@
     document.getElementById("search-input").addEventListener("input", filterMovies);
     document.getElementById("genre-filter").addEventListener("change", filterMovies);
 
-    // Initial load par saari 10 movies dikhayein
     renderMovies(moviesData);
   </script>
 </body>
