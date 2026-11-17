@@ -34,30 +34,18 @@
 <body class="bg-slate-950 text-slate-100 font-sans antialiased">
 
   <!-- Header & Navigation (AdSense requires clear navigation) -->
-<header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-    
-    <!-- Logo + Brand Name -->
-    <a href="index.html" class="flex items-center gap-2.5 group">
-      <!-- Modern Stream/Play Icon -->
-      <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
-        <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </div>
-      <span class="text-xl font-bold tracking-tight text-amber-400">
+  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="text-xl font-bold tracking-tight text-amber-400">
         StreamScope<span class="text-white">Guide</span>
-      </span>
-    </a>
-
-    <!-- Navigation Links -->
-    <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
-      <a href="index.html" class="hover:text-amber-400 transition">Home</a>
-      <a href="about.html" class="hover:text-amber-400 transition">About</a>
-      <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
-    </nav>
-  </div>
-</header>
+      </a>
+      <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="hover:text-amber-400 transition">About</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <main class="max-w-6xl mx-auto px-4 py-8">
     <!-- Hero + Search -->
@@ -120,29 +108,28 @@
     let allMovies = [];
 
     async function loadMovies() {
-  try {
-    // Relative path ki jagah yeh try karein
-    const response = await fetch('./movies.json');
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      try {
+        const res = await fetch("movies.json");
+        allMovies = await res.json();
+        renderMovies(allMovies);
+      } catch (err) {
+        console.error("Error loading movies.json:", err);
+      }
     }
-    
-    const movies = await response.json();
-    console.log("Loaded movies successfully:", movies);
-    
-    if (Array.isArray(movies) && movies.length > 0) {
-      renderMovies(movies);
-    } else {
-      console.error("JSON data khali hai ya array nahi hai!");
-    }
-  } catch (error) {
-    console.error("movies.json load karne mein error aa gaya:", error);
-  }
-}
 
-// Call function
-loadMovies();
+    async function fetchPoster(tmdbId) {
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+      }
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+        const data = await res.json();
+        return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
+      } catch {
+        return "";
+      }
+    }
+
     async function renderMovies(movies) {
       const grid = document.getElementById("moviesGrid");
       grid.innerHTML = "";
