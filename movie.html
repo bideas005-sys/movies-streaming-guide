@@ -177,7 +177,7 @@
       document.getElementById("dynamicSchema").textContent = JSON.stringify(schemaData);
 
       // 4. Fetch Poster & Trailer from TMDB API
-      if (TMDB_API_KEY && TMDB_API_KEY !== "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzBmOWEwNzVmOGUyYTYxOWNjYmY2MzliYjJhZTg5NSIsIm5iZiI6MTc5NDkwNjI2NC44OTYsInN1YiI6IjZhZmMxODk4MzFiYTI3Njk2MzZlZjcyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VWl3CsGEI5T6lGTLaiDqe4hjB6YbzEN_XEP16fBz8s0") {
+      if (TMDB_API_KEY && TMDB_API_KEY !== "YOUR_TMDB_API_KEY_HERE") {
         const tmdbRes = await fetch(`https://api.themoviedb.org/3/movie/${movie.tmdb_id}?api_key=${TMDB_API_KEY}&append_to_response=videos`);
         const tmdbData = await tmdbRes.json();
 
