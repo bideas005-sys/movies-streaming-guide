@@ -1,6 +1,4 @@
-// Mukammal 10 Blockbuster Movies ka Data
-const moviesData = [
-  {
+ {
     "slug": "oppenheimer",
     "title": "Oppenheimer",
     "tmdb_id": 872585,
