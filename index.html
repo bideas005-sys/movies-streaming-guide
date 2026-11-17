@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamScope Guide — Where to Watch Movies & TV Shows Legally</title>
+  <meta name="description" content="Discover where to stream trending movies and TV shows legally on Netflix, Prime Video, Max, and Apple TV. Read unbiased reviews and official streaming guides." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:title" content="StreamScope Guide — Legal Streaming & Movie Reviews" />
+  <meta property="og:description" content="Find legal streaming platforms, honest reviews, and official trailers." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Organization Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "StreamScope Guide",
+    "url": "https://yourdomain.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+
+  <!-- Header & Navigation (AdSense requires clear navigation) -->
+  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="index.html" class="text-xl font-bold tracking-tight text-amber-400">
+        StreamScope<span class="text-white">Guide</span>
+      </a>
+      <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
+        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="about.html" class="hover:text-amber-400 transition">About</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <!-- Hero + Search -->
+    <section class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">
+        Find Where to Stream Movies Legally
+      </h1>
+      <p class="text-slate-400 text-base mb-6">
+        In-depth editorial reviews, official trailers, and verified streaming availability across Netflix, Prime Video, Max, and Apple TV.
+      </p>
+      <input 
+        type="search" 
+        id="searchInput" 
+        placeholder="Search movies by title or genre..." 
+        aria-label="Search movies"
+        class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-amber-400"
+      />
+    </section>
+
+    <!-- AdSense Safe Top Banner Slot (Fixed min-height prevents CLS layout shift) -->
+    <div aria-label="Advertisement" class="my-6 min-h-[90px] bg-slate-900/50 border border-dashed border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-600">
+      <!-- Paste Google AdSense Display Unit Here -->
+      Advertisement Space (Responsive Banner)
+    </div>
+
+    <!-- Movies Grid -->
+    <section aria-labelledby="latest-guides-heading">
+      <h2 id="latest-guides-heading" class="text-xl font-bold text-white mb-6">
+        Latest Streaming Guides & Reviews
+      </h2>
+      <div id="moviesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards dynamically injected via JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with Mandatory AdSense Pages & TMDB Legal Credit -->
+  <footer class="border-t border-slate-800 bg-slate-900 mt-16 py-10 text-sm text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        <p class="font-semibold text-slate-200">&copy; 2026 StreamScope Guide. All rights reserved.</p>
+        <p class="text-xs text-slate-500 mt-1">
+          This product uses the TMDB API but is not endorsed or certified by TMDB. We do not host or stream copyrighted video files.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-5">
+        <a href="about.html" class="hover:text-white">About Us</a>
+        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
+        <a href="disclaimer.html" class="hover:text-white">Disclaimer & DMCA</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Apni free TMDB API Key yahan paste karein (developer.themoviedb.org se milti hai)
+    const TMDB_API_KEY = "YOUR_TMDB_API_KEY_HERE";
+    const TMDB_IMG_BASE = "https://image.tmdb.org/t/p/w500";
+
+    let allMovies = [];
+
+    async function loadMovies() {
+      try {
+        const res = await fetch("movies.json");
+        allMovies = await res.json();
+        renderMovies(allMovies);
+      } catch (err) {
+        console.error("Error loading movies.json:", err);
+      }
+    }
+
+    async function fetchPoster(tmdbId) {
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+      }
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+        const data = await res.json();
+        return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
+      } catch {
+        return "";
+      }
+    }
+
+    async function renderMovies(movies) {
+      const grid = document.getElementById("moviesGrid");
+      grid.innerHTML = "";
+
+      for (const movie of movies) {
+        const posterUrl = await fetchPoster(movie.tmdb_id);
+        const platformsHtml = movie.platforms
+          .map(p => `<span class="text-xs bg-slate-800 text-amber-300 px-2 py-1 rounded">${p.name}</span>`)
+          .join(" ");
+
+        const card = document.createElement("article");
+        card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col hover:border-slate-700 transition";
+        card.innerHTML = `
+          <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="block">
+            <img src="${posterUrl}" alt="${movie.title} Official Poster" loading="lazy" width="500" height="750" class="w-full h-80 object-cover bg-slate-800" />
+          </a>
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>${movie.genre}</span>
+                <span class="font-bold text-amber-400">★ ${movie.our_rating}</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">
+                <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="hover:text-amber-400">${movie.title}</a>
+              </h3>
+              <p class="text-sm text-slate-400 line-clamp-3 mb-4">${movie.verdict}</p>
+            </div>
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-4">${platformsHtml}</div>
+              <a href="movie.html?slug=${encodeURIComponent(movie.slug)}" class="block text-center w-full py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-sm transition">
+                Read Review & Streaming Guide
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase();
+      const filtered = allMovies.filter(m =>
+        m.title.toLowerCase().includes(term) || m.genre.toLowerCase().includes(term)
+      );
+      renderMovies(filtered);
+    });
+
+    loadMovies();
+  </script>
+</body>
+</html>
