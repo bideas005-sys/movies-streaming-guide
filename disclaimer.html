@@ -11,16 +11,30 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased">
 
-  <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-bold text-amber-400">StreamScope<span class="text-white">Guide</span></a>
-      <nav class="flex gap-6 text-sm text-slate-300">
-        <a href="index.html" class="hover:text-amber-400">Home</a>
-        <a href="about.html" class="hover:text-amber-400">About</a>
-        <a href="contact.html" class="hover:text-amber-400">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Header with Play Button + Website Name -->
+<header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+    
+    <!-- Play Icon Logo + Brand Name -->
+    <a href="index.html" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
+        <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
+      <span class="text-xl font-extrabold tracking-tight text-white">
+        Stream<span class="text-amber-400">Scope</span>
+      </span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
+      <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+      <a href="about.html" class="hover:text-amber-400 transition">About</a>
+      <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <main class="max-w-3xl mx-auto px-4 py-12 space-y-5 text-slate-300 leading-relaxed">
     <h1 class="text-3xl font-extrabold text-white">Disclaimer & Copyright Policy</h1>
