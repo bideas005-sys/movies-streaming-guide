@@ -3,223 +3,260 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StreamScope Guide — Where to Watch Movies & TV Shows Legally</title>
-  <meta name="description" content="Discover where to stream trending movies and TV shows legally on Netflix, Prime Video, Max, and Apple TV. Read unbiased reviews and official streaming guides." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://yourdomain.com/" />
-
-  <!-- Open Graph / Social SEO -->
-  <meta property="og:title" content="StreamScope Guide — Legal Streaming & Movie Reviews" />
-  <meta property="og:description" content="Find legal streaming platforms, honest reviews, and official trailers." />
-  <meta property="og:type" content="website" />
-
-  <!-- Tailwind CSS -->
+  <title>StreamScope Guide — Find Where to Watch Movies Legally</title>
+  <meta name="description" content="Discover where to legally stream, rent, or buy blockbuster movies across Netflix, Prime Video, Max, Disney+, and Apple TV." />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Organization Schema for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "StreamScope Guide",
-    "url": "https://yourdomain.com/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://yourdomain.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans">
 
-  <!-- Header & Navigation (AdSense requires clear navigation) -->
+  <!-- Header with Custom Play Button Logo -->
   <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-      <a href="index.html" class="text-xl font-bold tracking-tight text-amber-400">
-        StreamScope<span class="text-white">Guide</span>
+      
+      <!-- Play Icon Logo -->
+      <a href="index.html" aria-label="Home" class="flex items-center group">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:bg-amber-500/20 transition">
+          <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
       </a>
+
+      <!-- Navigation Links -->
       <nav aria-label="Main Navigation" class="flex gap-6 text-sm text-slate-300">
-        <a href="index.html" class="hover:text-amber-400 transition">Home</a>
+        <a href="index.html" class="text-amber-400 font-semibold transition">Home</a>
         <a href="about.html" class="hover:text-amber-400 transition">About</a>
         <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-8">
-    <!-- Hero + Search -->
-    <section class="text-center max-w-2xl mx-auto mb-10">
-      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">
-        Find Where to Stream Movies Legally
-      </h1>
-      <p class="text-slate-400 text-base mb-6">
-        In-depth editorial reviews, official trailers, and verified streaming availability across Netflix, Prime Video, Max, and Apple TV.
-      </p>
+  <!-- Hero Section & Search -->
+  <section class="max-w-6xl mx-auto px-4 pt-12 pb-8 text-center">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+      Find Where to Stream Your Next Favorite Movie
+    </h1>
+    <p class="text-slate-400 max-w-2xl mx-auto mb-8 text-base md:text-lg">
+      Explore verified legal streaming platforms, rental options, and editorial reviews for top blockbuster films.
+    </p>
+
+    <!-- Search & Filter Bar -->
+    <div class="max-w-2xl mx-auto flex flex-col sm:flex-row gap-3">
       <input 
-        type="search" 
-        id="searchInput" 
-        placeholder="Search movies by title or genre..." 
-        aria-label="Search movies"
-        class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-amber-400"
+        type="text" 
+        id="search-input" 
+        placeholder="Search movies by title..." 
+        class="flex-grow bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:border-amber-500"
       />
-    </section>
-
-    <!-- AdSense Safe Top Banner Slot (Fixed min-height prevents CLS layout shift) -->
-    <div aria-label="Advertisement" class="my-6 min-h-[90px] bg-slate-900/50 border border-dashed border-slate-800 rounded-lg flex items-center justify-center text-xs text-slate-600">
-      <!-- Paste Google AdSense Display Unit Here -->
-      Advertisement Space (Responsive Banner)
+      <select 
+        id="genre-filter" 
+        class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-amber-500"
+      >
+        <option value="All">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Drama">Drama</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Crime">Crime</option>
+        <option value="Animation">Animation</option>
+      </select>
     </div>
+  </section>
 
-    <!-- Movies Grid -->
-    <section aria-labelledby="latest-guides-heading">
-      <h2 id="latest-guides-heading" class="text-xl font-bold text-white mb-6">
-        Latest Streaming Guides & Reviews
-      </h2>
-      <div id="moviesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Cards dynamically injected via JS -->
-      </div>
-    </section>
+  <!-- Movies Grid Container -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+    <div id="movies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Movies will load here automatically -->
+    </div>
   </main>
 
-  <!-- Footer with Mandatory AdSense Pages & TMDB Legal Credit -->
-  <footer class="border-t border-slate-800 bg-slate-900 mt-16 py-10 text-sm text-slate-400">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <div>
-        <p class="font-semibold text-slate-200">&copy; 2026 StreamScope Guide. All rights reserved.</p>
-        <p class="text-xs text-slate-500 mt-1">
-          This product uses the TMDB API but is not endorsed or certified by TMDB. We do not host or stream copyrighted video files.
-        </p>
-      </div>
-      <div class="flex flex-wrap gap-5">
-        <a href="about.html" class="hover:text-white">About Us</a>
-        <a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a>
-        <a href="disclaimer.html" class="hover:text-white">Disclaimer & DMCA</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+      <p>&copy; 2026 StreamScope Guide. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="privacy.html" class="hover:text-amber-400 transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-amber-400 transition">Terms of Service</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
       </div>
     </div>
   </footer>
 
+  <!-- JavaScript Section -->
   <script>
-  // 1. Apni TMDB API Key yahan likhein
-  const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
+    // ==========================================
+    // APNI TMDB API KEY YAHAN PASTE KAREIN
+    // ==========================================
+    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
 
-  // 2. Saari 10 Movies ka Data Direct Code Mein
-  const moviesData = [
-    {
-      slug: "oppenheimer",
-      title: "Oppenheimer",
-      tmdb_id: 872585,
-      release_year: 2023,
-      synopsis: "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project."
-    },
-    {
-      slug: "dune-part-two",
-      title: "Dune: Part Two",
-      tmdb_id: 693134,
-      release_year: 2024,
-      synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family."
-    },
-    {
-      slug: "inception",
-      title: "Inception",
-      tmdb_id: 27205,
-      release_year: 2010,
-      synopsis: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea."
-    },
-    {
-      slug: "interstellar",
-      title: "Interstellar",
-      tmdb_id: 157336,
-      release_year: 2014,
-      synopsis: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft."
-    },
-    {
-      slug: "the-dark-knight",
-      title: "The Dark Knight",
-      tmdb_id: 155,
-      release_year: 2008,
-      synopsis: "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman faces a massive test."
-    },
-    {
-      slug: "gladiator-ii",
-      title: "Gladiator II",
-      tmdb_id: 558449,
-      release_year: 2024,
-      synopsis: "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home."
-    },
-    {
-      slug: "deadpool-and-wolverine",
-      title: "Deadpool & Wolverine",
-      tmdb_id: 533535,
-      release_year: 2024,
-      synopsis: "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside Wolverine."
-    },
-    {
-      slug: "inside-out-2",
-      title: "Inside Out 2",
-      tmdb_id: 1022789,
-      release_year: 2024,
-      synopsis: "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up."
-    },
-    {
-      slug: "john-wick-chapter-4",
-      title: "John Wick: Chapter 4",
-      tmdb_id: 603692,
-      release_year: 2023,
-      synopsis: "John Wick uncovers a path to defeating The High Table while facing off against global enemies."
-    },
-    {
-      slug: "the-batman",
-      title: "The Batman",
-      tmdb_id: 414906,
-      release_year: 2022,
-      synopsis: "When a sadistic serial killer targets political figures, Batman investigates Gotham's hidden corruption."
+    // Mukammal 10 Blockbuster Movies ka Data
+    const moviesData = [
+      {
+        slug: "oppenheimer",
+        title: "Oppenheimer",
+        tmdb_id: 872585,
+        release_year: 2023,
+        rating: "R",
+        genres: ["Drama", "History"],
+        synopsis: "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project."
+      },
+      {
+        slug: "dune-part-two",
+        title: "Dune: Part Two",
+        tmdb_id: 693134,
+        release_year: 2024,
+        rating: "PG-13",
+        genres: ["Sci-Fi", "Adventure"],
+        synopsis: "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family."
+      },
+      {
+        slug: "inception",
+        title: "Inception",
+        tmdb_id: 27205,
+        release_year: 2010,
+        rating: "PG-13",
+        genres: ["Action", "Sci-Fi", "Thriller"],
+        synopsis: "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea."
+      },
+      {
+        slug: "interstellar",
+        title: "Interstellar",
+        tmdb_id: 157336,
+        release_year: 2014,
+        rating: "PG-13",
+        genres: ["Adventure", "Drama", "Sci-Fi"],
+        synopsis: "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft to find a new planet."
+      },
+      {
+        slug: "the-dark-knight",
+        title: "The Dark Knight",
+        tmdb_id: 155,
+        release_year: 2008,
+        rating: "PG-13",
+        genres: ["Action", "Crime", "Drama"],
+        synopsis: "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman faces his greatest psychological and physical test."
+      },
+      {
+        slug: "gladiator-ii",
+        title: "Gladiator II",
+        tmdb_id: 558449,
+        release_year: 2024,
+        rating: "R",
+        genres: ["Action", "Adventure", "Drama"],
+        synopsis: "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home."
+      },
+      {
+        slug: "deadpool-and-wolverine",
+        title: "Deadpool & Wolverine",
+        tmdb_id: 533535,
+        release_year: 2024,
+        rating: "R",
+        genres: ["Action", "Comedy", "Sci-Fi"],
+        synopsis: "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside a reluctant Wolverine."
+      },
+      {
+        slug: "inside-out-2",
+        title: "Inside Out 2",
+        tmdb_id: 1022789,
+        release_year: 2024,
+        rating: "PG",
+        genres: ["Animation", "Family", "Comedy", "Adventure"],
+        synopsis: "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up."
+      },
+      {
+        slug: "john-wick-chapter-4",
+        title: "John Wick: Chapter 4",
+        tmdb_id: 603692,
+        release_year: 2023,
+        rating: "R",
+        genres: ["Action", "Crime", "Thriller"],
+        synopsis: "John Wick uncovers a path to defeating The High Table while facing off against powerful enemies across the globe."
+      },
+      {
+        slug: "the-batman",
+        title: "The Batman",
+        tmdb_id: 414906,
+        release_year: 2022,
+        rating: "PG-13",
+        genres: ["Action", "Crime", "Drama"],
+        synopsis: "When a sadistic serial killer begins murdering key political figures in Gotham, Batman investigates the city's hidden corruption."
+      }
+    ];
+
+    // Poster cache taake filter karte waqt bar bar API call na ho
+    const posterCache = {};
+
+    async function fetchPoster(tmdbId) {
+      if (posterCache[tmdbId]) return posterCache[tmdbId];
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+      }
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+        const data = await res.json();
+        const url = data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+        posterCache[tmdbId] = url;
+        return url;
+      } catch (err) {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+      }
     }
-  ];
 
-  // 3. Poster Fetch Karne Ka Function
-  async function fetchPoster(tmdbId) {
-    try {
-      const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
-      const data = await res.json();
-      return data.poster_path ? `https://image.tmdb.org/t/p/w500${data.poster_path}` : "";
-    } catch (err) {
-      return "";
+    async function renderMovies(list) {
+      const container = document.getElementById("movies-grid");
+      container.innerHTML = "";
+
+      if (list.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-12">No movies found matching your search.</p>`;
+        return;
+      }
+
+      for (const movie of list) {
+        const posterUrl = await fetchPoster(movie.tmdb_id);
+        
+        const card = document.createElement("div");
+        card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-slate-700 transition flex flex-col";
+        
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${posterUrl}" alt="${movie.title}" class="w-full h-80 object-cover" loading="lazy" />
+            <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md border border-slate-700">
+              ${movie.rating}
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="text-xs text-amber-400 font-medium mb-1">${movie.genres.join(" • ")}</div>
+            <h2 class="text-lg font-bold text-white mb-2">${movie.title} (${movie.release_year})</h2>
+            <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
+            <a href="movie.html?slug=${movie.slug}" class="mt-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-2.5 px-4 rounded-lg text-center text-sm transition">
+              Where to Watch
+            </a>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      }
     }
-  }
 
-  // 4. Saari 10 Movies Screen Par Dikhane Ka Function
-  async function renderAllMovies() {
-    // Apne HTML mein movies wale box ki ID check kar lein (usually 'movies-grid' ya 'movies-container' hoti hai)
-    const container = document.getElementById("movies-grid") || document.getElementById("movies-container");
-    if (!container) {
-      console.error("Container ID nahi mili! Apne HTML mein movies div ki id check karein.");
-      return;
+    // Search aur Genre Filter ka logic
+    function filterMovies() {
+      const searchText = document.getElementById("search-input").value.toLowerCase();
+      const selectedGenre = document.getElementById("genre-filter").value;
+
+      const filtered = moviesData.filter(movie => {
+        const matchesSearch = movie.title.toLowerCase().includes(searchText);
+        const matchesGenre = selectedGenre === "All" || movie.genres.includes(selectedGenre);
+        return matchesSearch && matchesGenre;
+      });
+
+      renderMovies(filtered);
     }
 
-    container.innerHTML = "";
+    document.getElementById("search-input").addEventListener("input", filterMovies);
+    document.getElementById("genre-filter").addEventListener("change", filterMovies);
 
-    for (const movie of moviesData) {
-      const posterUrl = await fetchPoster(movie.tmdb_id);
-      
-      const card = document.createElement("div");
-      card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg flex flex-col";
-      
-      card.innerHTML = `
-        <img src="${posterUrl || 'https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster'}" alt="${movie.title}" class="w-full h-80 object-cover" />
-        <div class="p-4 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-white mb-1">${movie.title} (${movie.release_year})</h3>
-          <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
-          <a href="movie.html?slug=${movie.slug}" class="mt-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-2 px-4 rounded-lg text-center transition">View Streaming Options</a>
-        </div>
-      `;
-      
-      container.appendChild(card);
-    }
-  }
-
-  renderAllMovies();
-</script>
+    // Initial load par saari 10 movies dikhayein
+    renderMovies(moviesData);
+  </script>
 </body>
 </html>
