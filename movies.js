@@ -44,3 +44,4 @@ const moviesData = [
     ],
     editorial_review: "Yahan kam az kam 3-4 lines ka original review likhein jo AdSense approval ke liye bohat zaroori hai."
   }
+  ];
