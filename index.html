@@ -118,17 +118,18 @@
     }
 
     async function fetchPoster(tmdbId) {
-      if (!TMDB_API_KEY || TMDB_API_KEY === "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzBmOWEwNzVmOGUyYTYxOWNjYmY2MzliYjJhZTg5NSIsIm5iZiI6MTc5NDkwNjI2NC44OTYsInN1YiI6IjZhZmMxODk4MzFiYTI3Njk2MzZlZjcyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VWl3CsGEI5T6lGTLaiDqe4hjB6YbzEN_XEP16fBz8s0") {
-        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
-      }
-      try {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
-        const data = await res.json();
-        return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
-      } catch {
-        return "";
-      }
-    }
+  if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+    return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+  }
+  try {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+    const data = await res.json();
+    return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
+  } catch (err) {
+    console.error("Error fetching poster:", err);
+    return "";
+  }
+}
 
     async function renderMovies(movies) {
       const grid = document.getElementById("moviesGrid");
