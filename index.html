@@ -120,29 +120,29 @@
     let allMovies = [];
 
     async function loadMovies() {
-      try {
-        const res = await fetch("movies.json");
-        allMovies = await res.json();
-        renderMovies(allMovies);
-      } catch (err) {
-        console.error("Error loading movies.json:", err);
-      }
-    }
-
-    async function fetchPoster(tmdbId) {
-  if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
-    return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
-  }
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
-    const data = await res.json();
-    return data.poster_path ? `${TMDB_IMG_BASE}${data.poster_path}` : "";
-  } catch (err) {
-    console.error("Error fetching poster:", err);
-    return "";
+    // Relative path ki jagah yeh try karein
+    const response = await fetch('./movies.json');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const movies = await response.json();
+    console.log("Loaded movies successfully:", movies);
+    
+    if (Array.isArray(movies) && movies.length > 0) {
+      renderMovies(movies);
+    } else {
+      console.error("JSON data khali hai ya array nahi hai!");
+    }
+  } catch (error) {
+    console.error("movies.json load karne mein error aa gaya:", error);
   }
 }
 
+// Call function
+loadMovies();
     async function renderMovies(movies) {
       const grid = document.getElementById("moviesGrid");
       grid.innerHTML = "";
