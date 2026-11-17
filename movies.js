@@ -289,5 +289,149 @@ const moviesData = [
       { platform: "Prime Video", type: "Rent / Buy", url: "https://www.amazon.com" }
     ],
     editorial_review: "A witty, stylish modern whodunnit featuring an all-star ensemble cast and clever narrative twists."
+  },
+  {
+    slug: "deadpool-and-wolverine-latest",
+    title: "Deadpool & Wolverine",
+    tmdb_id: 533535,
+    release_year: 2024,
+    rating: "R",
+    runtime: "128 min",
+    genres: ["Action", "Comedy", "Sci-Fi"],
+    synopsis: "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside a reluctant Wolverine.",
+    streaming_options: [
+      { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+    ],
+    editorial_review: "A hilarious, action-packed meta-ride delivering explosive chemistry between Ryan Reynolds and Hugh Jackman."
+  },
+  {
+    slug: "furiosa-a-mad-max-saga",
+    title: "Furiosa: A Mad Max Saga",
+    tmdb_id: 786892,
+    release_year: 2024,
+    rating: "R",
+    runtime: "148 min",
+    genres: ["Action", "Sci-Fi", "Adventure"],
+    synopsis: "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde.",
+    streaming_options: [
+      { platform: "Max", type: "Subscription", url: "https://www.max.com" },
+      { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+    ],
+    editorial_review: "George Miller returns with a roaring, visually stunning wasteland epic anchored by Anya Taylor-Joy's fierce performance."
+  },
+  {
+    slug: "inside-out-2",
+    title: "Inside Out 2",
+    tmdb_id: 1022789,
+    release_year: 2024,
+    rating: "PG",
+    runtime: "96 min",
+    genres: ["Animation", "Family", "Comedy", "Adventure"],
+    synopsis: "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up.",
+    streaming_options: [
+      { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+    ],
+    editorial_review: "A brilliant, deeply relatable animated sequel that expands on Pixar's emotional universe with wit and heart."
+  },
+  {
+    slug: "kingdom-of-the-planet-of-the-apes",
+    title: "Kingdom of the Planet of the Apes",
+    tmdb_id: 653346,
+    release_year: 2024,
+    rating: "PG-13",
+    runtime: "145 min",
+    genres: ["Sci-Fi", "Action", "Adventure"],
+    synopsis: "Several generations after Caesar's reign, apes are the dominant species living harmoniously while humans have regressed.",
+    streaming_options: [
+      { platform: "Hulu", type: "Subscription", url: "https://www.hulu.com" },
+      { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+    ],
+    editorial_review: "A visually gorgeous and thought-provoking expansion of the franchise that successfully kicks off a new chapter."
+  },
+  {
+    slug: "twisters",
+    title: "Twisters",
+    tmdb_id: 1022789,
+    release_year: 2024,
+    rating: "PG-13",
+    runtime: "122 min",
+    genres: ["Action", "Adventure", "Thriller"],
+    synopsis: "As storm season intensifies, path-crossing storm chasers and a reckless social-media superstar test their limits.",
+    streaming_options: [
+      { platform: "Peacock", type: "Subscription", url: "https://www.peacocktv.com" },
+      { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+    ],
+    editorial_review: "A thrilling, high-octane disaster blockbuster featuring great chemistry between Glen Powell and Daisy Edgar-Jones."
+  },
+  {
+    slug: "beetlejuice-beetlejuice",
+    title: "Beetlejuice Beetlejuice",
+    tmdb_id: 917496,
+    release_year: 2024,
+    rating: "PG-13",
+    runtime: "105 min",
+    genres: ["Fantasy", "Comedy", "Horror"],
+    synopsis: "After an unexpected family tragedy, three generations of the Deetz family return home to Winter River.",
+    streaming_options: [
+      { platform: "Max", type: "Subscription", url: "https://www.max.com" }
+    ],
+    editorial_review: "Tim Burton brings back his signature quirky, gothic charm in a delightfully nostalgic and fun sequel."
+  },
+  {
+    slug: "gladiator-ii",
+    title: "Gladiator II",
+    tmdb_id: 558449,
+    release_year: 2024,
+    rating: "R",
+    runtime: "148 min",
+    genres: ["Action", "Adventure", "Drama"],
+    synopsis: "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home.",
+    streaming_options: [
+      { platform: "Paramount+", type: "Subscription", url: "https://www.paramountplus.com" }
+    ],
+    editorial_review: "Ridley Scott returns to the Colosseum with massive scale, intense arena battles, and a compelling narrative."
+  },
+  {
+    slug: "wicked",
+    title: "Wicked",
+    tmdb_id: 402431,
+    release_year: 2024,
+    rating: "PG",
+    runtime: "160 min",
+    genres: ["Fantasy", "Drama", "Romance", "Music"],
+    synopsis: "The untold story of the witches of Oz: Elphaba, a misunderstood young woman, and Glinda, a popular young woman.",
+    streaming_options: [
+      { platform: "Peacock", type: "Subscription", url: "https://www.peacocktv.com" },
+      { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+    ],
+    editorial_review: "A visually mesmerizing, theatrical cinematic adaptation featuring powerhouse vocal performances and stunning production design."
+  },
+  {
+    slug: "moana-2",
+    title: "Moana 2",
+    tmdb_id: 1241982,
+    release_year: 2024,
+    rating: "PG",
+    runtime: "100 min",
+    genres: ["Animation", "Adventure", "Family", "Fantasy"],
+    synopsis: "Moana journeys to the far seas of Oceania after receiving an unexpected call from her wayfinding ancestors.",
+    streaming_options: [
+      { platform: "Disney+", type: "Subscription", url: "https://www.disneyplus.com" }
+    ],
+    editorial_review: "A vibrant, musical voyage filled with gorgeous oceanic visuals and an inspiring returning heroine."
+  },
+  {
+    slug: "nosferatu",
+    title: "Nosferatu",
+    tmdb_id: 426063,
+    release_year: 2024,
+    rating: "R",
+    runtime: "132 min",
+    genres: ["Horror", "Fantasy", "Drama"],
+    synopsis: "A gothic tale of obsession between a haunted young woman in 19th-century Germany and the ancient vampire who stalks her.",
+    streaming_options: [
+      { platform: "Prime Video", type: "Rent / Buy", url: "https://www.amazon.com" }
+    ],
+    editorial_review: "Robert Eggers crafts a terrifyingly atmospheric, visually breathtaking masterpiece of modern horror cinema."
   }
 ];
