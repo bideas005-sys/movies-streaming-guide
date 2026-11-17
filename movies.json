@@ -22,51 +22,6 @@
         "q": "Is Oppenheimer available on Netflix?",
         "a": "Availability varies by region, though in most territories Oppenheimer streams primarily on Amazon Prime Video or JioCinema rather than Netflix."
       },
-      {
-        "q": "How long is Oppenheimer?",
-        "a": "The official runtime is 3 hours (180 minutes)."
-      }
-    ]
-  },
-  {
-    "slug": "dune-part-two-2024",
-    "tmdb_id": 693134,
-    "title": "Dune: Part Two (2024)",
-    "meta_description": "Where to watch Dune: Part Two online? Check streaming platforms, 4K rental options, full spoiler-free review, and viewing guide.",
-    "genre": "Sci-Fi, Adventure",
-    "director": "Denis Villeneuve",
-    "our_rating": "9.4/10",
-    "platforms": [
-      { "name": "Max / HBO", "type": "Subscription", "url": "https://www.max.com" },
-      { "name": "Prime Video", "type": "Rent / Buy", "url": "https://www.primevideo.com" }
-    ],
-    "verdict": "Modern sci-fi perfection—visually monumental with a dark, unforgettable character arc.",
-    "review_paragraphs": [
-      "Denis Villeneuve elevates modern science fiction with Dune: Part Two, picking up immediately where the first film left off. Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
-      "Every frame feels like a painted mural of Arrakis, backed by Hans Zimmer's thunderous score. Unlike typical blockbusters, the narrative challenges the audience by questioning the nature of prophecy, power, and fanaticism.",
-      "For viewers looking to stream Dune: Part Two at home, the film is available on Max for subscribers and can be rented or purchased in Dolby Vision and Atmos across major digital storefronts."
-    ],
-    "faqs": [
-      {
-        "q": "Do I need to watch Dune: Part One before Part Two?",
-        "a": "Yes, Part Two continues the exact storyline from the first half of Frank Herbert's novel."
-      }
-    ]
-  },
-  {
-    "slug": "oppenheimer",
-    "title": "Oppenheimer",
-    "tmdb_id": 872585,
-    "release_year": 2023,
-    "rating": "R",
-    "runtime": "180 min",
-    "genres": ["Drama", "History"],
-    "synopsis": "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project. Oppenheimer and a team of scientists spend years developing and designing the atomic bomb.",
-    "streaming_options": [
-      { "platform": "Prime Video", "type": "Rent / Buy", "url": "https://www.amazon.com/dp/B0CB9V2Y1C" },
-      { "platform": "Apple TV", "type": "Rent / Buy", "url": "https://tv.apple.com/us/movie/oppenheimer/umc.cmc.4d375u54y966qjqx7b1r0y26j" }
-    ],
-    {
     "editorial_review": "Christopher Nolan's masterpiece is a tense, intellectually rigorous historical drama anchored by Cillian Murphy's powerhouse performance. It blends stunning visual cinematography with an uncompromising look at the dawn of the atomic age."
     }
   },
