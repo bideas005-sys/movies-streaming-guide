@@ -28,6 +28,19 @@ const moviesData = [
       { platform: "Max", type: "Subscription", url: "https://www.max.com" }
     ],
     editorial_review: "Denis Villeneuve delivers a breathtaking sci-fi spectacle."
+  },
+  {
+    slug: "movie-ka-naam-slug",
+    title: "Movie Ka Asal Naam",
+    tmdb_id: 123456, // TMDB website se movie ki numeric ID
+    release_year: 2024,
+    rating: "PG-13",
+    runtime: "145 min",
+    genres: ["Action", "Sci-Fi"],
+    synopsis: "Yahan movie ki mukhtasar kahani likhein...",
+    streaming_options: [
+      { platform: "Netflix", type: "Subscription", url: "https://www.netflix.com" },
+      { platform: "Apple TV", type: "Rent / Buy", url: "https://tv.apple.com" }
+    ],
+    editorial_review: "Yahan kam az kam 3-4 lines ka original review likhein jo AdSense approval ke liye bohat zaroori hai."
   }
-  // Baqi saari movies bhi isi tarah yahan add karte jayein...
-];
