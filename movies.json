@@ -1,170 +1,56 @@
- {
-    "slug": "oppenheimer",
-    "title": "Oppenheimer",
+[
+  {
+    "slug": "oppenheimer-2023",
     "tmdb_id": 872585,
-    "release_year": 2023,
-    "rating": "R",
-    "runtime": "180 min",
-    "genres": ["Drama", "History"],
-    "synopsis": "During World War II, Lt. Gen. Leslie Groves Jr. appoints physicist J. Robert Oppenheimer to work on the top-secret Manhattan Project.",
-    "streaming_options": [
-      { "platform": "Prime Video", "type": "Rent / Buy", "url": "https://www.amazon.com" }
+    "title": "Oppenheimer (2023)",
+    "meta_description": "Find out where to watch Oppenheimer (2023) online legally. Read our in-depth review, cast breakdown, and streaming availability on Prime Video and Apple TV.",
+    "genre": "Biography, Drama, History",
+    "director": "Christopher Nolan",
+    "our_rating": "9.2/10",
+    "platforms": [
+      { "name": "Amazon Prime Video", "type": "Subscription", "url": "https://www.primevideo.com" },
+      { "name": "Apple TV", "type": "Rent / Buy", "url": "https://tv.apple.com" }
     ],
-    "editorial_review": "Christopher Nolan's masterpiece is a tense, intellectually rigorous historical drama."
+    "verdict": "A masterclass in biographical filmmaking with unmatched sound design and haunting performances.",
+    "review_paragraphs": [
+      "Christopher Nolan's Oppenheimer is far more than a historical biopic; it is a gripping psychological thriller centered on J. Robert Oppenheimer, the theoretical physicist who led the Manhattan Project during World War II. Cillian Murphy delivers a career-defining performance, capturing both the brilliance and the moral burden of the man who changed modern warfare forever.",
+      "What sets this film apart for home streaming viewers is its relentless pacing and Ludwig Göransson's Academy Award-winning score. Even on a standard television or laptop setup, the tension inside the Los Alamos laboratories feels claustrophobic and urgent.",
+      "If you are deciding where to stream Oppenheimer, it is currently available for subscription streaming on Prime Video in several regions, as well as digital rental in 4K UHD on Apple TV and YouTube Movies. Watching with good headphones or a surround sound system is strongly recommended."
+    ],
+    "faqs": [
+      {
+        "q": "Is Oppenheimer available on Netflix?",
+        "a": "Availability varies by region, though in most territories Oppenheimer streams primarily on Amazon Prime Video or JioCinema rather than Netflix."
+      },
+      {
+        "q": "How long is Oppenheimer?",
+        "a": "The official runtime is 3 hours (180 minutes)."
+      }
+    ]
   },
   {
-    "slug": "dune-part-two",
-    "title": "Dune: Part Two",
+    "slug": "dune-part-two-2024",
     "tmdb_id": 693134,
-    "release_year": 2024,
-    "rating": "PG-13",
-    "runtime": "166 min",
-    "genres": ["Sci-Fi", "Adventure"],
-    "synopsis": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
-    "streaming_options": [
-      { "platform": "Max", "type": "Subscription", "url": "https://www.max.com" }
+    "title": "Dune: Part Two (2024)",
+    "meta_description": "Where to watch Dune: Part Two online? Check streaming platforms, 4K rental options, full spoiler-free review, and viewing guide.",
+    "genre": "Sci-Fi, Adventure",
+    "director": "Denis Villeneuve",
+    "our_rating": "9.4/10",
+    "platforms": [
+      { "name": "Max / HBO", "type": "Subscription", "url": "https://www.max.com" },
+      { "name": "Prime Video", "type": "Rent / Buy", "url": "https://www.primevideo.com" }
     ],
-    "editorial_review": "Denis Villeneuve delivers a breathtaking sci-fi spectacle."
-  },
-  {
-    "slug": "inception",
-    "title": "Inception",
-    "tmdb_id": 27205,
-    "release_year": 2010,
-    "rating": "PG-13",
-    "runtime": "148 min",
-    "genres": ["Action", "Sci-Fi", "Thriller"],
-    "synopsis": "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea.",
-    "streaming_options": [
-      { "platform": "Netflix", "type": "Subscription", "url": "https://www.netflix.com" }
+    "verdict": "Modern sci-fi perfection—visually monumental with a dark, unforgettable character arc.",
+    "review_paragraphs": [
+      "Denis Villeneuve elevates modern science fiction with Dune: Part Two, picking up immediately where the first film left off. Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+      "Every frame feels like a painted mural of Arrakis, backed by Hans Zimmer's thunderous score. Unlike typical blockbusters, the narrative challenges the audience by questioning the nature of prophecy, power, and fanaticism.",
+      "For viewers looking to stream Dune: Part Two at home, the film is available on Max for subscribers and can be rented or purchased in Dolby Vision and Atmos across major digital storefronts."
     ],
-    "editorial_review": "A mind-bending cinematic puzzle that rewards multiple viewings."
-  },
-  {
-    "slug": "interstellar",
-    "title": "Interstellar",
-    "tmdb_id": 157336,
-    "release_year": 2014,
-    "rating": "PG-13",
-    "runtime": "169 min",
-    "genres": ["Adventure", "Drama", "Sci-Fi"],
-    "synopsis": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot is tasked to pilot a spacecraft.",
-    "streaming_options": [
-      { "platform": "Paramount+", "type": "Subscription", "url": "https://www.paramountplus.com" }
-    ],
-    "editorial_review": "An emotionally resonant cosmic journey featuring Hans Zimmer's iconic score."
-  },
-  {
-    "slug": "the-dark-knight",
-    "title": "The Dark Knight",
-    "tmdb_id": 155,
-    "release_year": 2008,
-    "rating": "PG-13",
-    "runtime": "152 min",
-    "genres": ["Action", "Crime", "Drama"],
-    "synopsis": "When the menace known as the Joker wreaks havoc and chaos on Gotham, Batman faces a massive test.",
-    "streaming_options": [
-      { "platform": "Max", "type": "Subscription", "url": "https://www.max.com" }
-    ],
-    "editorial_review": "Widely regarded as one of the greatest superhero films ever made."
-  },
-  {
-    "slug": "gladiator-ii",
-    "title": "Gladiator II",
-    "tmdb_id": 558449,
-    "release_year": 2024,
-    "rating": "R",
-    "runtime": "148 min",
-    "genres": ["Action", "Adventure", "Drama"],
-    "synopsis": "Years after witnessing the death of Maximus, Lucius must enter the Colosseum after Roman conquerors take his home.",
-    "streaming_options": [
-      { "platform": "Paramount+", "type": "Subscription", "url": "https://www.paramountplus.com" }
-    ],
-    "editorial_review": "Ridley Scott returns to the Colosseum with massive scale and intense arena battles."
-  },
-  {
-    "slug": "deadpool-and-wolverine",
-    "title": "Deadpool & Wolverine",
-    "tmdb_id": 533535,
-    "release_year": 2024,
-    "rating": "R",
-    "runtime": "128 min",
-    "genres": ["Action", "Comedy", "Sci-Fi"],
-    "synopsis": "Deadpool's peaceful existence crashes down when the TVA recruits him for a mission alongside Wolverine.",
-    "streaming_options": [
-      { "platform": "Disney+", "type": "Subscription", "url": "https://www.disneyplus.com" }
-    ],
-    "editorial_review": "A hilarious, action-packed meta-ride delivering explosive chemistry."
-  },
-  {
-    "slug": "inside-out-2",
-    "title": "Inside Out 2",
-    "tmdb_id": 1022789,
-    "release_year": 2024,
-    "rating": "PG",
-    "runtime": "96 min",
-    "genres": ["Animation", "Family", "Comedy", "Adventure"],
-    "synopsis": "New emotions like Anxiety and Envy arrive at teenager Riley's mind headquarters to shake things up.",
-    "streaming_options": [
-      { "platform": "Disney+", "type": "Subscription", "url": "https://www.disneyplus.com" }
-    ],
-    "editorial_review": "A brilliant, deeply relatable animated sequel expanding on Pixar's universe."
-  },
-  {
-    "slug": "john-wick-chapter-4",
-    "title": "John Wick: Chapter 4",
-    "tmdb_id": 603692,
-    "release_year": 2023,
-    "rating": "R",
-    "runtime": "169 min",
-    "genres": ["Action", "Crime", "Thriller"],
-    "synopsis": "John Wick uncovers a path to defeating The High Table while facing off against global enemies.",
-    "streaming_options": [
-      { "platform": "Starz", "type": "Subscription", "url": "https://www.starz.com" }
-    ],
-    "editorial_review": "A stunning visual spectacle featuring phenomenal choreographed action."
-  },
-  {
-    "slug": "the-batman",
-    "title": "The Batman",
-    "tmdb_id": 414906,
-    "release_year": 2022,
-    "rating": "PG-13",
-    "runtime": "176 min",
-    "genres": ["Action", "Crime", "Drama"],
-    "synopsis": "When a sadistic serial killer targets political figures, Batman investigates Gotham's hidden corruption.",
-    "streaming_options": [
-      { "platform": "Max", "type": "Subscription", "url": "https://www.max.com" }
-    ],
-    "editorial_review": "A gritty, noir-infused detective story bringing Gotham's underworld to life."
+    "faqs": [
+      {
+        "q": "Do I need to watch Dune: Part One before Part Two?",
+        "a": "Yes, Part Two continues the exact storyline from the first half of Frank Herbert's novel."
+      }
+    ]
   }
-];
-
-// Yeh function saari movies ko aik aik kar ke safe tareeqay se render karega
-async function renderAllMovies() {
-  const container = document.getElementById("movies-container");
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  for (const movie of moviesData) {
-    const posterUrl = await fetchPoster(movie.tmdb_id);
-    
-    const card = document.createElement("div");
-    card.className = "bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg flex flex-col";
-    
-    card.innerHTML = `
-      <img src="${posterUrl || 'https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster'}" alt="${movie.title}" class="w-full h-80 object-cover" />
-      <div class="p-4 flex flex-col flex-grow">
-        <h3 class="text-lg font-bold text-white mb-1">${movie.title} (${movie.release_year})</h3>
-        <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
-        <a href="movie.html?slug=${movie.slug}" class="mt-auto bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold py-2 px-4 rounded-lg text-center transition">View Streaming Options</a>
-      </div>
-    `;
-    
-    container.appendChild(card);
-  }
-}
-
-// Function ko call kar dein
-renderAllMovies();
+]
