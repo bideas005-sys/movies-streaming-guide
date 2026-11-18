@@ -95,18 +95,18 @@
     async function fetchPoster(tmdbId) {
       if (posterCache[tmdbId]) return posterCache[tmdbId];
       if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
-        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+        return "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80";
       }
       try {
         const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
         const data = await res.json();
         const url = data.poster_path 
           ? `https://image.tmdb.org/t/p/w500${data.poster_path}` 
-          : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+          : "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80";
         posterCache[tmdbId] = url;
         return url;
       } catch (err) {
-        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+        return "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80";
       }
     }
 
