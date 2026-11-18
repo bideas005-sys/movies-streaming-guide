@@ -433,5 +433,14 @@ const moviesData = [
       { platform: "Prime Video", type: "Rent / Buy", url: "https://www.amazon.com" }
     ],
     editorial_review: "Robert Eggers crafts a terrifyingly atmospheric, visually breathtaking masterpiece of modern horror cinema."
+  },
+  {
+    slug: "avatar-fire-and-ash-2026",
+    title: "Avatar: Fire and Ash",
+    release_year: 2026,
+    genres: ["Sci-Fi", "Action", "Adventure"],
+    rating: "PG-13",
+    tmdb_id: 100001, // Apne hisab se TMDB ID adjust kar lein agar zaroorat ho
+    synopsis: "Looking for where to stream Avatar: Fire and Ash online? Dive back into the breathtaking world of Pandora with Jake Sully and Neytiri as they face uncharted biomes and the aggressive Ash People clan. Discover official legal streaming platforms, 4K digital rental options, and theater showtimes for the biggest sci-fi blockbuster of 2026."
   }
 ];
