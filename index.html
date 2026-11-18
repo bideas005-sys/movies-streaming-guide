@@ -84,6 +84,91 @@
   <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
     <div id="movies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
   </main>
+  <!-- External Movies Database -->
+  <script src="movies.js"></script>
+
+  <!-- Main Render Script -->
+  <script>
+    const TMDB_API_KEY = "9c0f9a075f8e2a619ccbf639bb2ae895";
+    const posterCache = {};
+
+    async function fetchPoster(tmdbId) {
+      if (posterCache[tmdbId]) return posterCache[tmdbId];
+      if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=Add+TMDB+Key";
+      }
+      try {
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${TMDB_API_KEY}`);
+        const data = await res.json();
+        const url = data.poster_path 
+          ? `https://image.tmdb.org/t/p/w500${data.poster_path}` 
+          : "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+        posterCache[tmdbId] = url;
+        return url;
+      } catch (err) {
+        return "https://via.placeholder.com/500x750/1e293b/f8fafc?text=No+Poster";
+      }
+    }
+
+    async function renderMovies(list) {
+      const container = document.getElementById("movies-grid");
+      container.innerHTML = "";
+
+      if (!list || list.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-slate-400 py-12">No movies found matching your search.</p>`;
+        return;
+      }
+
+      for (const movie of list) {
+        const posterUrl = await fetchPoster(movie.tmdb_id);
+        
+        const card = document.createElement("a");
+        card.href = `movie.html?slug=${movie.slug}`;
+        card.className = "group bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg hover:border-amber-500/50 hover:-translate-y-1 transition-all duration-200 flex flex-col cursor-pointer";
+        
+        card.innerHTML = `
+          <div class="relative overflow-hidden">
+            <img src="${posterUrl}" alt="${movie.title}" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            <span class="absolute top-3 right-3 bg-slate-950/80 backdrop-blur text-amber-400 text-xs font-bold px-2.5 py-1 rounded-md border border-slate-700">
+              ${movie.rating || "PG-13"}
+            </span>
+          </div>
+          <div class="p-4 flex flex-col flex-grow">
+            <div class="text-xs text-amber-400 font-medium mb-1">${(movie.genres || []).join(" • ")}</div>
+            <h2 class="text-lg font-bold text-white group-hover:text-amber-400 transition mb-2">${movie.title} (${movie.release_year})</h2>
+            <p class="text-sm text-slate-400 mb-4 line-clamp-2">${movie.synopsis}</p>
+            <div class="mt-auto bg-amber-500 group-hover:bg-amber-600 text-slate-950 font-semibold py-2.5 px-4 rounded-lg text-center text-sm transition">
+              Where to Watch
+            </div>
+          </div>
+        `;
+        
+        container.appendChild(card);
+      }
+    }
+
+    function filterMovies() {
+      const searchText = document.getElementById("search-input").value.toLowerCase();
+      const selectedGenre = document.getElementById("genre-filter").value;
+
+      const filtered = moviesData.filter(movie => {
+        const matchesSearch = movie.title.toLowerCase().includes(searchText);
+        const matchesGenre = selectedGenre === "All" || (movie.genres && movie.genres.includes(selectedGenre));
+        return matchesSearch && matchesGenre;
+      });
+
+      renderMovies(filtered);
+    }
+
+    document.getElementById("search-input").addEventListener("input", filterMovies);
+    document.getElementById("genre-filter").addEventListener("change", filterMovies);
+
+    if (typeof moviesData !== "undefined") {
+      renderMovies(moviesData);
+    } else {
+      console.error("movies.js load nahi hui!");
+    }
+  </script>
 
   <!-- Unified Footer -->
   <footer class="bg-slate-950 border-t border-slate-800 mt-16 text-slate-400 text-sm">
